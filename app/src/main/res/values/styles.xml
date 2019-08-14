@@ -67,4 +67,9 @@
         <item name="android:textSize">36sp</item>
     </style>
 
+    <style name="ContentTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
 </resources>
