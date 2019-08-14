@@ -1,7 +1,8 @@
-package moe.misakachan.runway
+package moe.misakachan.runway.Activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import moe.misakachan.runway.R
 
 class MainActivity : AppCompatActivity() {
 
