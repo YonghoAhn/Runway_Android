@@ -12,4 +12,6 @@
     <string name="start_time">START TIME</string>
     <string name="end_time">END TIME</string>
     <string name="what_time_do_you_go_to_work">What time\ndo yo go to work?</string>
+    <string name="manage_your_device">Manage your\ndevice.</string>
+    <string name="mirror">MIRROR</string>
 </resources>
