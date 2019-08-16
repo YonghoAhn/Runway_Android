@@ -17,4 +17,5 @@
     <string name="status_connected">STATUS : CONNECTED</string>
     <string name="manage_your_mirror">Manage your\nMirror.</string>
     <string name="manage_your_alarm">Manage your\nAlarm.</string>
+    <string name="manage_your_door_lock">Manage your\nDoor lock.</string>
 </resources>
