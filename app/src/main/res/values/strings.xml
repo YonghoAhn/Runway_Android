@@ -15,4 +15,5 @@
     <string name="manage_your_device">Manage your\ndevice.</string>
     <string name="mirror">MIRROR</string>
     <string name="status_connected">STATUS : CONNECTED</string>
+    <string name="manage_your_mirror">Manage your\nMirror.</string>
 </resources>
