@@ -16,4 +16,5 @@
     <string name="mirror">MIRROR</string>
     <string name="status_connected">STATUS : CONNECTED</string>
     <string name="manage_your_mirror">Manage your\nMirror.</string>
+    <string name="manage_your_alarm">Manage your\nAlarm.</string>
 </resources>
