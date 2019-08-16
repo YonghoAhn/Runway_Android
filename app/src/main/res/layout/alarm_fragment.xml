@@ -16,11 +16,11 @@
                 android:tint="@color/primaryDarkColor"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:id="@+id/imageView" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="32dp"
-                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                android:id="@+id/imageView" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="@dimen/margin_large"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_large" app:layout_constraintTop_toBottomOf="@+id/toolbar"
                 app:layout_constraintHorizontal_bias="0.5" app:layout_constraintBottom_toTopOf="@+id/guideline"
-                android:layout_marginBottom="32dp" app:layout_constraintDimensionRatio="1:1"/>
+                android:layout_marginBottom="@dimen/margin_large" app:layout_constraintDimensionRatio="1:1"/>
         <androidx.appcompat.widget.Toolbar
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -37,9 +37,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="32dp" android:layout_marginEnd="24dp"
+                android:layout_marginStart="@dimen/margin_large" android:layout_marginEnd="24dp"
                 app:layout_constraintEnd_toEndOf="parent" android:id="@+id/constraintLayout"
-                app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="8dp"
+                app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="@dimen/margin_small"
                 app:layout_constraintTop_toTopOf="@+id/guideline">
 
 
@@ -53,8 +53,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintEnd_toStartOf="@+id/toggleTuesday" app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="8dp" app:layout_constraintDimensionRatio="1:1" android:checked="true"
-                    android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="@dimen/margin_small" app:layout_constraintDimensionRatio="1:1" android:checked="true"
+                    android:layout_marginBottom="@dimen/margin_small" app:layout_constraintBottom_toBottomOf="parent"
                     android:layout_marginEnd="4dp" android:layout_marginStart="4dp"/>
             <ToggleButton
                     android:textOn="T"
@@ -65,8 +65,8 @@
                     android:layout_height="0dp" android:id="@+id/toggleTuesday" android:layout_weight="1"
                     app:layout_constraintStart_toEndOf="@+id/toggleMonday" app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintEnd_toStartOf="@+id/toggleWednesday"
-                    app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="8dp"
-                    app:layout_constraintDimensionRatio="w,1:1" android:layout_marginBottom="8dp"
+                    app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="@dimen/margin_small"
+                    app:layout_constraintDimensionRatio="w,1:1" android:layout_marginBottom="@dimen/margin_small"
                     app:layout_constraintBottom_toBottomOf="parent" android:layout_marginStart="4dp"
                     android:layout_marginEnd="4dp"/>
             <ToggleButton
@@ -78,8 +78,8 @@
                     android:layout_height="0dp" android:id="@+id/toggleWednesday" android:layout_weight="1"
                     app:layout_constraintStart_toEndOf="@+id/toggleTuesday" app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintEnd_toStartOf="@+id/toggleThursday" app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="8dp" app:layout_constraintDimensionRatio="w,1:1"
-                    android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="@dimen/margin_small" app:layout_constraintDimensionRatio="w,1:1"
+                    android:layout_marginBottom="@dimen/margin_small" app:layout_constraintBottom_toBottomOf="parent"
                     android:layout_marginStart="4dp" android:layout_marginEnd="4dp"/>
             <ToggleButton
                     android:textOn="T"
@@ -90,8 +90,8 @@
                     android:layout_height="0dp" android:id="@+id/toggleThursday" android:layout_weight="1"
                     app:layout_constraintStart_toEndOf="@+id/toggleWednesday" app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintEnd_toStartOf="@+id/toggleFriday" app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="8dp" app:layout_constraintDimensionRatio="w,1:1"
-                    android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="@dimen/margin_small" app:layout_constraintDimensionRatio="w,1:1"
+                    android:layout_marginBottom="@dimen/margin_small" app:layout_constraintBottom_toBottomOf="parent"
                     android:layout_marginStart="4dp" android:layout_marginEnd="4dp"/>
             <ToggleButton
                     android:textOn="F"
@@ -102,8 +102,8 @@
                     android:layout_height="0dp" android:id="@+id/toggleFriday" android:layout_weight="1"
                     app:layout_constraintStart_toEndOf="@+id/toggleThursday" app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintEnd_toStartOf="@+id/toggleSaturday" app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="8dp" app:layout_constraintDimensionRatio="w,1:1"
-                    android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="@dimen/margin_small" app:layout_constraintDimensionRatio="w,1:1"
+                    android:layout_marginBottom="@dimen/margin_small" app:layout_constraintBottom_toBottomOf="parent"
                     android:layout_marginStart="4dp" android:layout_marginEnd="4dp"/>
             <ToggleButton
                     android:textOn="S"
@@ -114,8 +114,8 @@
                     android:layout_height="0dp" android:id="@+id/toggleSaturday" android:layout_weight="1"
                     app:layout_constraintStart_toEndOf="@+id/toggleFriday" app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintEnd_toStartOf="@+id/toggleSunday" app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="8dp" app:layout_constraintDimensionRatio="w,1:1"
-                    android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="@dimen/margin_small" app:layout_constraintDimensionRatio="w,1:1"
+                    android:layout_marginBottom="@dimen/margin_small" app:layout_constraintBottom_toBottomOf="parent"
                     android:layout_marginStart="4dp" android:layout_marginEnd="4dp"/>
             <ToggleButton
                     android:textOn="S"
@@ -127,8 +127,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/toggleSaturday"
                     app:layout_constraintHorizontal_bias="0.5" app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="8dp" app:layout_constraintDimensionRatio="w,1:1"
-                    android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="@dimen/margin_small" app:layout_constraintDimensionRatio="w,1:1"
+                    android:layout_marginBottom="@dimen/margin_small" app:layout_constraintBottom_toBottomOf="parent"
                     android:layout_marginStart="4dp" android:layout_marginEnd="4dp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.Guideline android:layout_width="wrap_content"
@@ -141,15 +141,15 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/textView4"
                 style="@style/ContentTextView"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/margin_medium"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="32dp"/>
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="@dimen/margin_large"/>
         <SeekBar
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/seekBarVolume" app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="32dp" app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="32dp" android:layout_marginTop="16dp"
+                android:layout_marginStart="@dimen/margin_large" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="@dimen/margin_large" android:layout_marginTop="@dimen/margin_medium"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" android:max="100" android:progress="50"/>
 
         <TextView
@@ -158,16 +158,16 @@
                 style="@style/ContentTextView"
                 android:text="Carry stuff"
                 app:layout_constraintTop_toBottomOf="@+id/seekBarVolume" app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="32dp" android:layout_marginTop="16dp" android:id="@+id/textView5"/>
+                android:layout_marginStart="@dimen/margin_large" android:layout_marginTop="@dimen/margin_medium" android:id="@+id/textView5"/>
         <com.google.android.material.chip.Chip android:layout_width="wrap_content"
                                                android:layout_height="wrap_content"
                                                android:text="Add"
                                                android:textColor="#000"
                                                app:chipBackgroundColor="@color/secondaryColor"
-                                               android:layout_marginTop="8dp"
+                                               android:layout_marginTop="@dimen/margin_small"
                                                app:layout_constraintTop_toBottomOf="@+id/textView5"
                                                app:layout_constraintStart_toStartOf="parent"
-                                               android:layout_marginStart="32dp"
+                                               android:layout_marginStart="@dimen/margin_large"
                                                android:id="@+id/chipAddStuff"/>
         <HorizontalScrollView
                 android:layout_width="0dp"
@@ -175,8 +175,8 @@
                 android:overScrollMode="never"
                 android:scrollbars="none"
                 app:layout_constraintStart_toEndOf="@+id/chipAddStuff" app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="8dp" app:layout_constraintTop_toBottomOf="@+id/textView5"
-                android:layout_marginTop="8dp" android:layout_marginStart="8dp">
+                android:layout_marginEnd="@dimen/margin_small" app:layout_constraintTop_toBottomOf="@+id/textView5"
+                android:layout_marginTop="@dimen/margin_small" android:layout_marginStart="@dimen/margin_small">
             <com.google.android.material.chip.ChipGroup
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
