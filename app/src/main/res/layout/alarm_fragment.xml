@@ -11,6 +11,23 @@
             android:layout_height="match_parent"
             android:background="@color/primaryColor"
     >
+        <com.google.android.material.button.MaterialButtonToggleGroup android:layout_width="0dp"
+                                                                      android:layout_height="wrap_content"
+                                                                      app:layout_constraintStart_toStartOf="parent"
+                                                                      app:layout_constraintEnd_toEndOf="parent"
+                                                                      app:layout_constraintTop_toBottomOf="@+id/chipAddStuff"
+                                                                      android:layout_marginStart="@dimen/margin_large"
+                                                                      android:layout_marginEnd="@dimen/margin_large"
+                                                                      android:layout_marginTop="@dimen/margin_medium">
+            <com.google.android.material.button.MaterialButton
+                    android:backgroundTint="@drawable/togglebutton_management_background"
+                    android:textColor="@drawable/togglebutton_management_textcolor"
+                    style="@style/AppButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="DISABLED"
+                    android:id="@+id/btnToggleTime"/>
+        </com.google.android.material.button.MaterialButtonToggleGroup>
         <ImageView
                 android:src="@drawable/ic_circle"
                 android:tint="@color/primaryDarkColor"
@@ -175,7 +192,7 @@
                 android:overScrollMode="never"
                 android:scrollbars="none"
                 app:layout_constraintStart_toEndOf="@+id/chipAddStuff" app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="@dimen/margin_small" app:layout_constraintTop_toBottomOf="@+id/textView5"
+                android:layout_marginEnd="32dp" app:layout_constraintTop_toBottomOf="@+id/textView5"
                 android:layout_marginTop="@dimen/margin_small" android:layout_marginStart="@dimen/margin_small">
             <com.google.android.material.chip.ChipGroup
                     android:layout_width="wrap_content"

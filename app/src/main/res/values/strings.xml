@@ -25,4 +25,5 @@
     <string name="time">TIME</string>
     <string name="wifi">WIFI</string>
     <string name="applying_settings_to_device">Applying Settings to\nDevice.</string>
+    <string name="stop">STOP</string>
 </resources>

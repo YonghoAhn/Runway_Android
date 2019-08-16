@@ -13,5 +13,29 @@
         <action android:id="@+id/action_registerFragment_to_wiFiFragment" app:destination="@id/wiFiFragment"/>
     </fragment>
     <fragment android:id="@+id/wiFiFragment" android:name="moe.misakachan.runway.Fragments.WiFiFragment"
-              android:label="wi_fi_fragment" tools:layout="@layout/wi_fi_fragment"/>
+              android:label="wi_fi_fragment" tools:layout="@layout/wi_fi_fragment">
+        <action android:id="@+id/action_wiFiFragment_to_connectDeviceFragment"
+                app:destination="@id/connectDeviceFragment"/>
+    </fragment>
+    <fragment android:id="@+id/placeDescriptionFragment"
+              android:name="moe.misakachan.runway.Fragments.PlaceDescriptionFragment"
+              android:label="place_description_fragment" tools:layout="@layout/place_description_fragment">
+        <action android:id="@+id/action_placeDescriptionFragment_to_pickAddressFragment"
+                app:destination="@id/pickAddressFragment"/>
+    </fragment>
+    <fragment android:id="@+id/timePickFragment" android:name="moe.misakachan.runway.Fragments.TimePickFragment"
+              android:label="time_pick_fragment" tools:layout="@layout/time_pick_fragment"/>
+    <fragment android:id="@+id/pickAddressFragment" android:name="moe.misakachan.runway.Fragments.PickAddressFragment"
+              android:label="pick_address_fragment" tools:layout="@layout/pick_address_fragment">
+        <action android:id="@+id/action_pickAddressFragment_to_placeDescriptionFragment"
+                app:destination="@id/placeDescriptionFragment"/>
+        <action android:id="@+id/action_pickAddressFragment_to_timePickFragment2"
+                app:destination="@id/timePickFragment"/>
+    </fragment>
+    <fragment android:id="@+id/connectDeviceFragment"
+              android:name="moe.misakachan.runway.Fragments.ConnectDeviceFragment"
+              android:label="connect_device_fragment" tools:layout="@layout/connect_device_fragment">
+        <action android:id="@+id/action_connectDeviceFragment_to_placeDescriptionFragment"
+                app:destination="@id/placeDescriptionFragment"/>
+    </fragment>
 </navigation>
