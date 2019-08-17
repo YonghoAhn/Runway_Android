@@ -50,6 +50,8 @@ dependencies {
     // room
     implementation 'android.arch.persistence.room:runtime:1.1.1'
     kapt 'android.arch.persistence.room:compiler:1.1.1'
+    //Gson
+    implementation 'com.google.code.gson:gson:2.8.5'
 
     // ViewModel and LiveData
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"

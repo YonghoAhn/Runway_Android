@@ -36,7 +36,7 @@ class AlarmFragment : Fragment() {
 
         viewModel = ViewModelProviders.of(this).get(AlarmViewModel::class.java)
         viewModel.getAll().observe(this, Observer<List<Alarm>> { alarms ->
-            
+
 
 
             val weekDay = alarms[0].weekday
