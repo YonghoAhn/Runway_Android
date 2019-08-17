@@ -7,8 +7,12 @@ import androidx.room.PrimaryKey
 //this is an Entity class.
 @Entity(tableName = "alarm")
 data class Alarm (
-    @PrimaryKey
-    var time : String,
+    @PrimaryKey(autoGenerate = true)
+    var id:Int?,
+    @ColumnInfo(name = "hour")
+    var hour : Int,
+    @ColumnInfo(name = "min")
+    var min : Int,
     @ColumnInfo(name = "color")
     var color : String,
     @ColumnInfo(name = "volume")
@@ -30,5 +34,5 @@ data class Alarm (
         return weekday.contentHashCode()
     }
 
-    constructor() : this("0000","FFFFFF",100, Array(7) {true}, arrayListOf<String>())
+    constructor() : this(null,0,0, "FFFFFF",100, Array(7) {true}, arrayListOf<String>())
 }

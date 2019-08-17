@@ -7,7 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 interface AlarmDAO{
-    @Query("SELECT * FROM alarm ORDER BY time ASC")
+    @Query("SELECT * FROM alarm ORDER BY id ASC")
     fun getAll() : LiveData<List<Alarm>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
