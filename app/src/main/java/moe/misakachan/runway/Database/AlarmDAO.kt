@@ -1,11 +1,10 @@
-package moe.misakachan.runway.Models
+package moe.misakachan.runway.Database
 
 import androidx.lifecycle.LiveData
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
+import moe.misakachan.runway.Models.Alarm
 
+@Dao
 interface AlarmDAO{
     @Query("SELECT * FROM alarm ORDER BY id ASC")
     fun getAll() : LiveData<List<Alarm>>

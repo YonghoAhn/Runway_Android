@@ -42,7 +42,7 @@ class AlarmFragment : Fragment() {
             val weekDay = alarms[0].weekday
             for(i in  0..6)
             {
-                ToggleButtonArray[i].isChecked = weekDay[i]
+                ToggleButtonArray[i].isChecked = weekDay[i] != '0'
             }
         })
     }

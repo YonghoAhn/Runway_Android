@@ -18,21 +18,9 @@ data class Alarm (
     @ColumnInfo(name = "volume")
     var volume : Int,
     @ColumnInfo(name = "weekday")
-    var weekday : Array<Boolean>,
+    var weekday : String,
     @ColumnInfo(name = "stuff")
-    val stuff : ArrayList<String>
+    val stuff : String
 ) {
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-        other as Alarm
-        if (!weekday.contentEquals(other.weekday)) return false
-        return true
-    }
-
-    override fun hashCode(): Int {
-        return weekday.contentHashCode()
-    }
-
-    constructor() : this(null,0,0, "FFFFFF",100, Array(7) {true}, arrayListOf<String>())
+    constructor() : this(null,0,0, "FFFFFF",100, "", "")
 }
