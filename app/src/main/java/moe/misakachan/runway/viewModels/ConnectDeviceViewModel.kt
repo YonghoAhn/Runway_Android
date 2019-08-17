@@ -2,6 +2,6 @@ package moe.misakachan.runway.ViewModels
 
 import androidx.lifecycle.ViewModel;
 
-class SleepPatternViewModel : ViewModel() {
+class ConnectDeviceViewModel : ViewModel() {
     // TODO: Implement the ViewModel
 }

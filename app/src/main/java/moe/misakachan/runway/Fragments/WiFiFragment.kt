@@ -1,4 +1,4 @@
-package moe.misakachan.runway.Fragments
+package moe.misakachan.runway.fragments
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import moe.misakachan.runway.R
-import moe.misakachan.runway.ViewModels.WiFiViewModel
+import moe.misakachan.runway.viewModels.WiFiViewModel
 
 
 class WiFiFragment : Fragment() {

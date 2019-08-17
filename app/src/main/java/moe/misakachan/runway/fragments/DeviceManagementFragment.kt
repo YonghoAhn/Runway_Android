@@ -8,26 +8,26 @@ import android.view.View
 import android.view.ViewGroup
 
 import moe.misakachan.runway.R
-import moe.misakachan.runway.ViewModels.AlarmManageViewModel
+import moe.misakachan.runway.ViewModels.DeviceManagementViewModel
 
-class AlarmManageFragment : Fragment() {
+class DeviceManagementFragment : Fragment() {
 
     companion object {
-        fun newInstance() = AlarmManageFragment()
+        fun newInstance() = DeviceManagementFragment()
     }
 
-    private lateinit var viewModel: AlarmManageViewModel
+    private lateinit var viewModel: DeviceManagementViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.alarm_manage_fragment, container, false)
+        return inflater.inflate(R.layout.device_management_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(AlarmManageViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(DeviceManagementViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

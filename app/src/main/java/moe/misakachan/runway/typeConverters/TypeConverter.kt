@@ -1,4 +1,4 @@
-package moe.misakachan.runway.TypeConverttters
+package moe.misakachan.runway.typeConverters
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson

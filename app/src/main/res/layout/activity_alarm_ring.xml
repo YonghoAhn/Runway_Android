@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/primaryColor"
-        tools:context=".Activities.AlarmRingActivity">
+        tools:context=".activities.AlarmRingActivity">
 
     <TextClock android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/TitleTextView"
                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"

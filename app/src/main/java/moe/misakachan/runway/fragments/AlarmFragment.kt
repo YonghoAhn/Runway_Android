@@ -1,19 +1,17 @@
-package moe.misakachan.runway.Fragments
+package moe.misakachan.runway.fragments
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.util.Range
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ToggleButton
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.alarm_fragment.*
-import moe.misakachan.runway.Models.Alarm
+import moe.misakachan.runway.models.Alarm
 
 import moe.misakachan.runway.R
-import moe.misakachan.runway.ViewModels.AlarmViewModel
+import moe.misakachan.runway.viewModels.AlarmViewModel
 
 class AlarmFragment : Fragment() {
 

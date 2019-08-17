@@ -1,4 +1,4 @@
-package moe.misakachan.runway.Models
+package moe.misakachan.runway.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

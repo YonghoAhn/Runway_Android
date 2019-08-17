@@ -1,10 +1,10 @@
-package moe.misakachan.runway.Repositories
+package moe.misakachan.runway.repositories
 
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
-import moe.misakachan.runway.Database.AlarmDatabase
-import moe.misakachan.runway.Models.Alarm
+import moe.misakachan.runway.database.AlarmDatabase
+import moe.misakachan.runway.models.Alarm
 import java.lang.Exception
 
 class AlarmRepository (application: Application)

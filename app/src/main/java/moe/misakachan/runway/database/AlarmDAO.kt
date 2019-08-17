@@ -1,8 +1,8 @@
-package moe.misakachan.runway.Database
+package moe.misakachan.runway.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import moe.misakachan.runway.Models.Alarm
+import moe.misakachan.runway.models.Alarm
 
 @Dao
 interface AlarmDAO{

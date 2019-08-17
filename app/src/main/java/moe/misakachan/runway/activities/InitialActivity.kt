@@ -1,13 +1,13 @@
-package moe.misakachan.runway.Activities
+package moe.misakachan.runway.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import moe.misakachan.runway.R
 
-class AlarmRingActivity : AppCompatActivity() {
+class InitialActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_alarm_ring)
+        setContentView(R.layout.activity_initial)
     }
 }
