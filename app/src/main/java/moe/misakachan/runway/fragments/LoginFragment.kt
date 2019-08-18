@@ -1,4 +1,4 @@
-package moe.misakachan.runway.Fragments
+package moe.misakachan.runway.fragments
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import moe.misakachan.runway.ViewModels.LoginViewModel
+import moe.misakachan.runway.viewModels.LoginViewModel
 import moe.misakachan.runway.R
 
 

@@ -1,4 +1,4 @@
-package moe.misakachan.runway.ViewModels
+package moe.misakachan.runway.viewModels
 
 import androidx.lifecycle.ViewModel;
 
