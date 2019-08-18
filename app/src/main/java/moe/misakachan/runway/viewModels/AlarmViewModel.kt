@@ -3,6 +3,7 @@ package moe.misakachan.runway.viewModels
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.room.ColumnInfo
 import moe.misakachan.runway.models.Alarm
 import moe.misakachan.runway.repositories.AlarmRepository
 
@@ -16,10 +17,14 @@ class AlarmViewModel(application: Application) : AndroidViewModel(application) {
 
     /*
         Mutable Observable (origin data)
-     */
 
-    //TODO: add fields
-
+    var hour : Int,
+    var min : Int,
+    var color : String,
+    var volume : Int,
+    var weekday : String,
+    val stuff : String
+    */
     /*
       Observable Fields for out
     */
