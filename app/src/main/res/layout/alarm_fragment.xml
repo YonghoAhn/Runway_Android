@@ -68,7 +68,7 @@
                 <ToggleButton
                         android:textOn="M"
                         android:textOff="M"
-                        android:checked="@{alarmViewModel.all}"
+                        android:checked="@{alarmViewModel.weekDay[0] == '0' ? false : true}"
                         android:textColor="@drawable/n_weekday_textcolor_selector"
                         android:background="@drawable/togglebtn_weekday_selector"
                         android:layout_width="0dp"
@@ -78,13 +78,13 @@
                         app:layout_constraintEnd_toStartOf="@+id/toggleTuesday"
                         app:layout_constraintTop_toTopOf="parent"
                         android:layout_marginTop="@dimen/margin_small" app:layout_constraintDimensionRatio="1:1"
-                        android:checked="true"
                         android:layout_marginBottom="@dimen/margin_small"
                         app:layout_constraintBottom_toBottomOf="parent"
                         android:layout_marginEnd="4dp" android:layout_marginStart="4dp"/>
                 <ToggleButton
                         android:textOn="T"
                         android:textOff="T"
+                        android:checked="@{alarmViewModel.weekDay[1] == '0' ? false : true}"
                         android:textColor="@drawable/n_weekday_textcolor_selector"
                         android:background="@drawable/togglebtn_weekday_selector"
                         android:layout_width="0dp"
@@ -99,6 +99,8 @@
                 <ToggleButton
                         android:textOn="W"
                         android:textOff="W"
+                        android:checked="@{alarmViewModel.weekDay[2] == '0' ? false : true}"
+
                         android:textColor="@drawable/n_weekday_textcolor_selector"
                         android:background="@drawable/togglebtn_weekday_selector"
                         android:layout_width="0dp"
@@ -114,6 +116,7 @@
                 <ToggleButton
                         android:textOn="T"
                         android:textOff="T"
+                        android:checked="@{alarmViewModel.weekDay[3] == '0' ? false : true}"
                         android:textColor="@drawable/n_weekday_textcolor_selector"
                         android:background="@drawable/togglebtn_weekday_selector"
                         android:layout_width="0dp"
@@ -128,6 +131,7 @@
                 <ToggleButton
                         android:textOn="F"
                         android:textOff="F"
+                        android:checked="@{alarmViewModel.weekDay[4] == '0' ? false : true}"
                         android:textColor="@drawable/n_weekday_textcolor_selector"
                         android:background="@drawable/togglebtn_weekday_selector"
                         android:layout_width="0dp"
@@ -143,6 +147,7 @@
                 <ToggleButton
                         android:textOn="S"
                         android:textOff="S"
+                        android:checked="@{alarmViewModel.weekDay[5] == '0' ? false : true}"
                         android:textColor="@drawable/n_weekday_textcolor_selector"
                         android:background="@drawable/togglebtn_weekday_selector"
                         android:layout_width="0dp"
@@ -157,6 +162,7 @@
                 <ToggleButton
                         android:textOn="S"
                         android:textOff="S"
+                        android:checked="@{alarmViewModel.weekDay[6] == '0' ? false : true}"
                         android:textColor="@drawable/n_weekday_textcolor_selector"
                         android:background="@drawable/togglebtn_weekday_selector"
                         android:layout_width="0dp"
@@ -188,7 +194,8 @@
                     android:id="@+id/seekBarVolume" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginStart="@dimen/margin_large" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="@dimen/margin_large" android:layout_marginTop="@dimen/margin_medium"
-                    app:layout_constraintTop_toBottomOf="@+id/textView4" android:max="100" android:progress="50"/>
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" android:max="100"
+                    android:progress="@{alarmViewModel.volume}"/>
 
             <TextView
                     android:layout_width="wrap_content"
@@ -238,16 +245,39 @@
                             android:layout_height="wrap_content" android:id="@+id/chip4" android:text="지갑"/>
                 </com.google.android.material.chip.ChipGroup>
             </HorizontalScrollView>
-            <TextView
-                    android:text="10:30"
-                    style="@style/TitleTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tvAlarmTime"
-                    app:layout_constraintEnd_toEndOf="@+id/imgAlarmMood"
-                    app:layout_constraintStart_toStartOf="@+id/imgAlarmMood"
-                    app:layout_constraintTop_toTopOf="@+id/imgAlarmMood"
-                    app:layout_constraintBottom_toBottomOf="@+id/imgAlarmMood"/>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          app:layout_constraintEnd_toEndOf="@+id/imgAlarmMood"
+                          app:layout_constraintStart_toStartOf="@+id/imgAlarmMood"
+                          app:layout_constraintTop_toTopOf="@+id/imgAlarmMood"
+                          app:layout_constraintBottom_toBottomOf="@+id/imgAlarmMood"
+                          android:orientation="horizontal"
+            >
+                <TextView
+                        android:text="@{alarmViewModel.hour}"
+                        style="@style/TitleTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvAlarmHour"
+                />
+                <TextView
+                        android:text=":"
+                        style="@style/TitleTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                />
+                <TextView
+                        android:text="@{alarmViewModel.minute}"
+                        style="@style/TitleTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvAlarmMin"
+                />
+            </LinearLayout>
+
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </FrameLayout>

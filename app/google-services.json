@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "659454906513",
+    "firebase_url": "https://runway-249610.firebaseio.com",
+    "project_id": "runway-249610",
+    "storage_bucket": "runway-249610.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659454906513:android:d3020a45bce55467",
+        "android_client_info": {
+          "package_name": "moe.misakachan.runway"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659454906513-54r00qb0897tvdj1oncclvtonfu05tvf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "moe.misakachan.runway",
+            "certificate_hash": "c83b2fd81bf492a5a4e2fb565eb122208d10d231"
+          }
+        },
+        {
+          "client_id": "659454906513-908lrgoj0bodpabf2l8o0cjqc25erjgt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBX0H2IVaLGvaWEpj0fclfKLikk85BQLcs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659454906513-908lrgoj0bodpabf2l8o0cjqc25erjgt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
