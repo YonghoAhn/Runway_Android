@@ -6,11 +6,9 @@
 
     <fragment android:id="@+id/loginFragment" android:name="moe.misakachan.runway.fragments.LoginFragment"
               android:label="login_fragment" tools:layout="@layout/login_fragment">
-        <action android:id="@+id/action_loginFragment_to_registerFragment" app:destination="@id/registerFragment"/>
-    </fragment>
-    <fragment android:id="@+id/registerFragment" android:name="moe.misakachan.runway.fragments.RegisterFragment"
-              android:label="register_fragment" tools:layout="@layout/register_fragment">
-        <action android:id="@+id/action_registerFragment_to_wiFiFragment" app:destination="@id/wiFiFragment"/>
+        <action
+                android:id="@+id/action_loginFragment_to_wiFiFragment"
+                app:destination="@id/wiFiFragment" />
     </fragment>
     <fragment android:id="@+id/wiFiFragment" android:name="moe.misakachan.runway.fragments.WiFiFragment"
               android:label="wi_fi_fragment" tools:layout="@layout/wi_fi_fragment">

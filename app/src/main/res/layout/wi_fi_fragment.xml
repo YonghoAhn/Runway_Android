@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+                name="wifiViewModel"
+                type="moe.misakachan.runway.viewModels.WiFiViewModel" />
+    </data>
 <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
@@ -61,3 +67,4 @@
                 app:layout_constraintTop_toBottomOf="@+id/textInputLddxcayout2"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
+</layout>
