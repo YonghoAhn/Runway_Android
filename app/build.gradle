@@ -48,8 +48,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:17.1.0'
     implementation 'com.google.firebase:firebase-auth:19.0.0'
     //Facebook
-    implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
-
+    implementation 'com.facebook.android:facebook-android-sdk:4.42.0'
+    // koin
+    implementation "org.koin:koin-androidx-scope:1.0.2"
+    implementation "org.koin:koin-androidx-viewmodel:1.0.2"
     //Navigation Fragment
     implementation 'androidx.navigation:navigation-fragment-ktx:2.2.0-alpha01'
 
