@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+<data>
+    <variable
+            name="loginViewModel"
+            type="moe.misakachan.runway.viewModels.LoginViewModel" />
+</data>
 <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
@@ -13,6 +19,7 @@
         <com.google.android.material.button.MaterialButton
                 android:id="@+id/facebook_signin_btn"
                 style="@style/IconButton"
+                android:onClick="@{loginViewModel.onClick()}"
                 app:icon="@drawable/fb_logo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -28,3 +35,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
+</layout>
