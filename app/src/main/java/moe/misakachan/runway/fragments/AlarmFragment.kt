@@ -30,19 +30,8 @@ class AlarmFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val ToggleButtonArray = arrayOf(toggleMonday, toggleTuesday, toggleWednesday, toggleThursday, toggleFriday, toggleSaturday, toggleSunday)
-
         viewModel = ViewModelProviders.of(this).get(AlarmViewModel::class.java)
-        viewModel.getAll().observe(this, Observer<List<Alarm>> { alarms ->
-
-
-
-            val weekDay = alarms[0].weekday
-            for(i in  0..6)
-            {
-                ToggleButtonArray[i].isChecked = weekDay[i] != '0'
-            }
-        })
+        viewModel.getAll()
     }
 
 }

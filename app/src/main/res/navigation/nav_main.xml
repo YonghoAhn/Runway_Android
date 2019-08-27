@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/nav_main"
+        app:startDestination="@id/alarmFragment">
+
+    <fragment
+            android:id="@+id/lockDoorFragment"
+            android:name="moe.misakachan.runway.fragments.LockDoorFragment"
+            android:label="lock_door_fragment"
+            tools:layout="@layout/lock_door_fragment" />
+    <fragment
+            android:id="@+id/deviceManagementFragment"
+            android:name="moe.misakachan.runway.fragments.DeviceManagementFragment"
+            android:label="device_management_fragment"
+            tools:layout="@layout/device_management_fragment" >
+        <action
+                android:id="@+id/action_deviceManagementFragment_to_mirrorManageFragment"
+                app:destination="@id/mirrorManageFragment" />
+        <action
+                android:id="@+id/action_deviceManagementFragment_to_alarmManageFragment"
+                app:destination="@id/alarmManageFragment" />
+        <action
+                android:id="@+id/action_deviceManagementFragment_to_doorManageFragment"
+                app:destination="@id/doorManageFragment" />
+    </fragment>
+    <fragment
+            android:id="@+id/sleepPatternFragment"
+            android:name="moe.misakachan.runway.fragments.SleepPatternFragment"
+            android:label="sleep_pattern_fragment"
+            tools:layout="@layout/sleep_pattern_fragment" />
+    <fragment
+            android:id="@+id/settingFragment"
+            android:name="moe.misakachan.runway.fragments.SettingFragment"
+            android:label="setting_fragment"
+            tools:layout="@layout/setting_fragment" />
+    <fragment
+            android:id="@+id/alarmFragment"
+            android:name="moe.misakachan.runway.fragments.AlarmFragment"
+            android:label="AlarmFragment" />
+    <fragment
+            android:id="@+id/mirrorManageFragment"
+            android:name="moe.misakachan.runway.fragments.MirrorManageFragment"
+            android:label="mirror_manage_fragment"
+            tools:layout="@layout/mirror_manage_fragment" />
+    <fragment
+            android:id="@+id/alarmManageFragment"
+            android:name="moe.misakachan.runway.fragments.AlarmManageFragment"
+            android:label="AlarmManageFragment" />
+    <fragment
+            android:id="@+id/doorManageFragment"
+            android:name="moe.misakachan.runway.fragments.DoorManageFragment"
+            android:label="DoorManageFragment" />
+</navigation>

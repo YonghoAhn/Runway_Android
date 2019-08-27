@@ -2,22 +2,33 @@ package moe.misakachan.runway.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.telecom.Call
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.facebook.AccessToken
 import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
 import com.facebook.login.LoginManager
+import com.facebook.login.LoginResult
+import com.google.firebase.auth.FacebookAuthProvider
+import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.login_fragment.*
 import moe.misakachan.runway.R
+import moe.misakachan.runway.activities.MainActivity
 import moe.misakachan.runway.utils.facebookLoginCallback
 import moe.misakachan.runway.viewModels.LoginViewModel
 
 
 class LoginFragment : Fragment() {
 
-    private val mCallbackManager = CallbackManager.Factory.create()
-    private val mLoginCallback = facebookLoginCallback()
+    private lateinit var mCallbackManager : CallbackManager
+    private lateinit var auth : FirebaseAuth
 
     companion object {
         fun newInstance() = LoginFragment()
@@ -35,13 +46,49 @@ class LoginFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
+        auth = FirebaseAuth.getInstance()
+        mCallbackManager = CallbackManager.Factory.create()
+        val currentUser = auth.currentUser
+        facebook_signin_btn.setOnClickListener {
+            onClick()
+        }
+        if(currentUser!=null)
+        {
+            startActivity(Intent(requireContext(),MainActivity::class.java))
+            requireActivity().finish()
+        }
     }
 
-    public fun onClick(view : View)
+    fun onClick()
     {
         val loginManager = LoginManager.getInstance()
         loginManager.logInWithReadPermissions(this, mutableListOf("public_profile", "email"))
-        loginManager.registerCallback(mCallbackManager,mLoginCallback)
+        loginManager.registerCallback(mCallbackManager, object :FacebookCallback<LoginResult> {
+            override fun onSuccess(result: LoginResult?) {
+                handleFacebookAccessToken(result?.accessToken)
+            }
+            override fun onCancel() {
+            }
+            override fun onError(error: FacebookException?) {
+            }
+        })
+    }
+
+    private fun handleFacebookAccessToken(token: AccessToken?) {
+        Log.d("MisakaMOE", "handleFacebookAccessToken:$token")
+        if (token != null) {
+            val credential = FacebookAuthProvider.getCredential(token.token)
+            auth.signInWithCredential(credential).addOnCompleteListener(requireActivity()) { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d("MisakaMOE", "signInWithCredential:success")
+                        val user = auth.currentUser
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w("MisakaMOE", "signInWithCredential:failure", task.exception)
+                    }
+                }
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

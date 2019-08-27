@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/alarmFragment"
+        android:icon="@drawable/ic_alarm"
+        android:title="Alarm"
+    />
+
+    <item
+            android:id="@+id/sleepPatternFragment"
+            android:icon="@drawable/ic_sleep"
+            android:title="Sleep"
+            />
+
+    <item
+            android:id="@+id/deviceManagementFragment"
+            android:icon="@drawable/ic_connect"
+            android:title="Devices"
+            />
+
+    <item
+            android:id="@+id/lockDoorFragment"
+            android:icon="@drawable/ic_lock"
+            android:title="Door"
+            />
+
+    <item
+            android:id="@+id/settingFragment"
+            android:icon="@drawable/ic_settings"
+            android:title="Setting"
+            />
+</menu>

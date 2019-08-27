@@ -38,10 +38,12 @@ class AlarmViewModel(application: Application) : AndroidViewModel(application) {
       LiveData protects setter, so View can't change any value
     */
 
+
+
     val hour: LiveData<Int> get() = _hour
     val minute: LiveData<Int> get() = _minute
     val color: LiveData<String> get() = _color
-    val weekDay : LiveData<String> get() = _weekDay
+    val weekDay = MutableLiveData<ArrayList<Boolean>> ()
     val stuff : LiveData<String> get() = _stuff
 
     fun getAll() : LiveData<List<Alarm>>
@@ -58,4 +60,5 @@ class AlarmViewModel(application: Application) : AndroidViewModel(application) {
     {
         repository.delete(alarm)
     }
+
 }
