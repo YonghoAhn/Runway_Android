@@ -8,6 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:id="@+id/layoutDoorLock"
             android:background="@color/primaryColor"
     >
         <ImageView android:layout_width="0dp" android:layout_height="0dp" android:src="@drawable/ic_lock"
@@ -28,7 +29,7 @@
                    android:layout_marginTop="8dp"
                    app:layout_constraintTop_toBottomOf="@+id/imageView2" android:layout_marginEnd="8dp"
                    android:id="@+id/imageView3" app:layout_constraintHorizontal_bias="0.5"
-                   app:layout_constraintBottom_toTopOf="@+id/materialButton2"/>
+                   app:layout_constraintBottom_toTopOf="@+id/btnLockDoor"/>
         <com.google.android.material.button.MaterialButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -38,7 +39,8 @@
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="@dimen/margin_large"
                 android:layout_marginTop="@dimen/margin_medium"
                 app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="@dimen/margin_large"
-                app:layout_constraintTop_toBottomOf="@+id/imageView3" android:id="@+id/materialButton2"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3"
+                android:id="@+id/btnLockDoor"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.5"
         />
     </androidx.constraintlayout.widget.ConstraintLayout>

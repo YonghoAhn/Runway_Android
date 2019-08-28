@@ -83,6 +83,8 @@ class LoginFragment : Fragment() {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d("MisakaMOE", "signInWithCredential:success")
                         val user = auth.currentUser
+                        startActivity(Intent(requireContext(),MainActivity::class.java))
+                        requireActivity().finish()
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w("MisakaMOE", "signInWithCredential:failure", task.exception)
