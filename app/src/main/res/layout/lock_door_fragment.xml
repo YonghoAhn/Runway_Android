@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+                name="viewModel"
+                type="moe.misakachan.runway.viewModels.LockDoorViewModel" />
+    </data>
 <FrameLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".fragments.LockDoorFragment">
@@ -11,7 +16,8 @@
             android:id="@+id/layoutDoorLock"
             android:background="@color/primaryColor"
     >
-        <ImageView android:layout_width="0dp" android:layout_height="0dp" android:src="@drawable/ic_lock"
+        <ImageView android:layout_width="0dp" android:layout_height="0dp"
+                android:src="@{viewModel.lockedDrawable}"
                    android:scaleType="centerCrop"
                    android:tint="@color/secondaryColor"
                    app:layout_constraintTop_toTopOf="parent"
@@ -46,3 +52,4 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
+</layout>

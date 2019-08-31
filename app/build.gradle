@@ -15,10 +15,18 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
             }
+        }
+
+        kotlinOptions {
+            jvmTarget = "1.8"
         }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -83,8 +91,6 @@ dependencies {
     // alternatively - Lifecycles only (no ViewModel or LiveData). Some UI
     //     AndroidX libraries use this lightweight import for Lifecycle
     implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
-    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
-    // For Kotlin use kapt instead of annotationProcessor
     // alternately - if using Java8, use the following instead of lifecycle-compiler
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
     // optional - ReactiveStreams support for LiveData

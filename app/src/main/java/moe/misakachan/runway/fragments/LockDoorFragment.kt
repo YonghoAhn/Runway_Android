@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.biometric.BiometricPrompt
+import androidx.lifecycle.observe
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.lock_door_fragment.*
 
@@ -35,6 +36,18 @@ class LockDoorFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(LockDoorViewModel::class.java)
+
+        viewModel.getDataSnapshotLiveData().observe(this) {
+            if(!it.isLocked) {
+                //Door is unlocked
+
+            }
+            else
+            {
+                //Door is locked
+            }
+        }
+
         btnLockDoor.setOnClickListener{
             runFingerprint()
         }

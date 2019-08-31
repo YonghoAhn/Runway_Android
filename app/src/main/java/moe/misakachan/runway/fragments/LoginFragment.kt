@@ -2,12 +2,10 @@ package moe.misakachan.runway.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import android.telecom.Call
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.facebook.AccessToken
@@ -21,7 +19,6 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.login_fragment.*
 import moe.misakachan.runway.R
 import moe.misakachan.runway.activities.MainActivity
-import moe.misakachan.runway.utils.facebookLoginCallback
 import moe.misakachan.runway.viewModels.LoginViewModel
 
 
