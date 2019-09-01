@@ -72,14 +72,12 @@ class LoginFragment : Fragment() {
     }
 
     private fun handleFacebookAccessToken(token: AccessToken?) {
-        Log.d("MisakaMOE", "handleFacebookAccessToken:$token")
         if (token != null) {
             val credential = FacebookAuthProvider.getCredential(token.token)
             auth.signInWithCredential(credential).addOnCompleteListener(requireActivity()) { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d("MisakaMOE", "signInWithCredential:success")
-                        val user = auth.currentUser
                         startActivity(Intent(requireContext(),MainActivity::class.java))
                         requireActivity().finish()
                     } else {
