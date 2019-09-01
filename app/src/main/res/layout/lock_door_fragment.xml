@@ -17,14 +17,14 @@
             android:background="@color/primaryColor"
     >
         <ImageView android:layout_width="0dp" android:layout_height="0dp"
-                android:src="@{viewModel.lockedDrawable}"
+                android:src="@drawable/ic_lock"
                    android:scaleType="centerCrop"
                    android:tint="@color/secondaryColor"
                    app:layout_constraintTop_toTopOf="parent"
                    app:layout_constraintStart_toStartOf="parent"
                    app:layout_constraintEnd_toEndOf="parent"
                    app:layout_constraintDimensionRatio="h,1:1" android:layout_marginStart="64dp"
-                   android:layout_marginEnd="64dp" android:id="@+id/imageView2"
+                   android:layout_marginEnd="64dp" android:id="@+id/imgLockIndicator"
                    app:layout_constraintVertical_chainStyle="packed"
                    app:layout_constraintHorizontal_bias="0.5" app:layout_constraintBottom_toTopOf="@+id/imageView3"/>
         <ImageView android:layout_width="64dp" android:layout_height="64dp"
@@ -33,7 +33,7 @@
                    app:layout_constraintEnd_toEndOf="parent"
                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
                    android:layout_marginTop="8dp"
-                   app:layout_constraintTop_toBottomOf="@+id/imageView2" android:layout_marginEnd="8dp"
+                   app:layout_constraintTop_toBottomOf="@+id/imgLockIndicator" android:layout_marginEnd="8dp"
                    android:id="@+id/imageView3" app:layout_constraintHorizontal_bias="0.5"
                    app:layout_constraintBottom_toTopOf="@+id/btnLockDoor"/>
         <com.google.android.material.button.MaterialButton
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 style="@style/AppButton"
                 android:textColor="@color/secondaryColor"
-                android:text="@string/tap_to_unlock"
+                android:text="@string/tap_to_unlock_door"
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="@dimen/margin_large"
                 android:layout_marginTop="@dimen/margin_medium"
                 app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="@dimen/margin_large"

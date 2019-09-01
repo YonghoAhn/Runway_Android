@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.biometric.BiometricPrompt
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.observe
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.lock_door_fragment.*
@@ -40,16 +41,22 @@ class LockDoorFragment : Fragment() {
         viewModel.getDataSnapshotLiveData().observe(this) {
             if(!it.isLocked) {
                 //Door is unlocked
-
+                imgLockIndicator.setImageDrawable(ContextCompat.getDrawable(requireContext(),R.drawable.ic_unlock))
+                btnLockDoor.text = getString(R.string.tap_to_lock_door)
             }
             else
             {
                 //Door is locked
+                imgLockIndicator.setImageDrawable(ContextCompat.getDrawable(requireContext(),R.drawable.ic_lock))
+                btnLockDoor.text = getString(R.string.tap_to_unlock_door)
             }
         }
 
         btnLockDoor.setOnClickListener{
-            runFingerprint()
+            if(viewModel.getDataSnapshotLiveData().value!!.isLocked)
+                runFingerprint()
+            else
+                viewModel.setState(true)
         }
     }
 
@@ -67,6 +74,7 @@ class LockDoorFragment : Fragment() {
             override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
                 super.onAuthenticationSucceeded(result)
                 Log.d("MisakaMOE","Success")
+                viewModel.setState(false)
                 //Toast.makeText(requireContext(),"Successful",Toast.LENGTH_SHORT).show()
             }
             override fun onAuthenticationFailed() {

@@ -22,6 +22,7 @@ class FirebaseQueryLiveData : LiveData<DataSnapshot> {
     override fun onActive() {
         Log.d(LOG_TAG, "onActive")
         query.addValueEventListener(listener)
+
     }
 
     override fun onInactive() {
@@ -31,7 +32,7 @@ class FirebaseQueryLiveData : LiveData<DataSnapshot> {
 
     private inner class MyValueEventListener : ValueEventListener {
         override fun onDataChange(dataSnapshot: DataSnapshot) {
-            setValue(dataSnapshot)
+            value = dataSnapshot
         }
 
         override fun onCancelled(databaseError: DatabaseError) {
