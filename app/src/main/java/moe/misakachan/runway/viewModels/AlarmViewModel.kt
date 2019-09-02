@@ -8,16 +8,25 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import moe.misakachan.runway.models.Alarm
 import moe.misakachan.runway.models.Door
 import moe.misakachan.runway.utils.FirebaseQueryLiveData
+
+interface OnDataListener {
+    fun onSuccess(dataSnapshot: DataSnapshot)
+    fun onStart()
+    fun onFailure()
+
+}
 
 class AlarmViewModel(application: Application) : AndroidViewModel(application) {
     private val alarmRef = FirebaseDatabase.getInstance().getReference("/alarm")
     private val alarmLiveData = FirebaseQueryLiveData(alarmRef)
     private val liveData = Transformations.map(alarmLiveData, Deserializer())
+
+    val stuffRef = FirebaseDatabase.getInstance().getReference("/stuff")
+
 
     private inner class Deserializer : Function<DataSnapshot, Alarm> {
         override fun apply(dataSnapshot: DataSnapshot): Alarm? {
@@ -27,6 +36,20 @@ class AlarmViewModel(application: Application) : AndroidViewModel(application) {
 
     fun getDataSnapshotLiveData(): LiveData<Alarm> {
         return liveData
+    }
+
+    fun getStuff(ref : DatabaseReference, listener: OnDataListener)
+    {
+        listener.onStart()
+        ref.addValueEventListener(object : ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+                listener.onFailure()
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                listener.onSuccess(p0)
+            }
+        })
     }
 
     fun setVolume(volume : Int)
