@@ -2,6 +2,7 @@ package moe.misakachan.runway.viewModels
 
 import android.app.Application
 import android.graphics.Color
+import android.util.Log
 import androidx.arch.core.util.Function
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -31,6 +32,11 @@ class AlarmViewModel(application: Application) : AndroidViewModel(application) {
     fun setVolume(volume : Int)
     {
         alarmRef.child("volume").setValue(volume)
+    }
+
+    fun setWeekDay(position : String, state : Boolean)
+    {
+        alarmRef.child(position).setValue(state)
     }
     /*
         Mutable Observable (origin data)

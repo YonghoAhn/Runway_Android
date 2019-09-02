@@ -12,13 +12,16 @@ import android.widget.SeekBar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.observe
 import kotlinx.android.synthetic.main.alarm_fragment.*
+import kotlinx.android.synthetic.main.alarm_fragment.view.*
 import moe.misakachan.runway.models.Alarm
 
 import moe.misakachan.runway.R
 import moe.misakachan.runway.viewModels.AlarmViewModel
 import org.jetbrains.anko.toast
 
-class AlarmFragment : Fragment() {
+class AlarmFragment : Fragment(), View.OnClickListener {
+    override fun onClick(p0: View?) {
+    }
 
     companion object {
         fun newInstance() = AlarmFragment()
@@ -41,6 +44,13 @@ class AlarmFragment : Fragment() {
             tvAlarmHour.text = it.hour
             tvAlarmMin.text = it.min
             seekBarVolume.progress = it.volume
+            toggleMonday.isChecked = it.mon
+            toggleTuesday.isChecked = it.tue
+            toggleWednesday.isChecked = it.wed
+            toggleThursday.isChecked = it.thu
+            toggleFriday.isChecked = it.fri
+            toggleSaturday.isChecked = it.sat
+            toggleSunday.isChecked = it.sun
         }
 
         seekBarVolume.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
@@ -61,6 +71,28 @@ class AlarmFragment : Fragment() {
 
         imgAlarmMood.setOnClickListener {
             requireActivity().toast("Image")
+        }
+
+        toggleMonday.setOnClickListener{
+            viewModel.setWeekDay("mon",toggleMonday.isChecked)
+        }
+        toggleTuesday.setOnClickListener{
+            viewModel.setWeekDay("tue",toggleTuesday.isChecked)
+        }
+        toggleWednesday.setOnClickListener{
+            viewModel.setWeekDay("wed",toggleWednesday.isChecked)
+        }
+        toggleThursday.setOnClickListener{
+            viewModel.setWeekDay("thu",toggleThursday.isChecked)
+        }
+        toggleFriday.setOnClickListener {
+            viewModel.setWeekDay("fri",toggleFriday.isChecked)
+        }
+        toggleSaturday.setOnClickListener{
+            viewModel.setWeekDay("sat",toggleSaturday.isChecked)
+        }
+        toggleSunday.setOnClickListener{
+            viewModel.setWeekDay("sun",toggleSunday.isChecked)
         }
     }
 
