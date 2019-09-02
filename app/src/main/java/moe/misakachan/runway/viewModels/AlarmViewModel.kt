@@ -61,6 +61,17 @@ class AlarmViewModel(application: Application) : AndroidViewModel(application) {
     {
         alarmRef.child(position).setValue(state)
     }
+
+    fun removeStuff(key : String)
+    {
+        stuffRef.child(key).removeValue()
+    }
+
+    fun addStuff(key:String)
+    {
+        Log.d("MisakaMOE",key)
+        stuffRef.child(key).setValue(key)
+    }
     /*
         Mutable Observable (origin data)
 

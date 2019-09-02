@@ -1,5 +1,7 @@
 package moe.misakachan.runway.fragments
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.graphics.Color
 import android.graphics.ColorFilter
 import androidx.lifecycle.ViewModelProviders
@@ -10,6 +12,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.SeekBar
 import androidx.core.content.ContextCompat
@@ -45,6 +48,20 @@ class AlarmFragment : Fragment(), View.OnClickListener {
         return inflater.inflate(R.layout.alarm_fragment, container, false)
     }
 
+    fun displayAddStuffDialog() : String? {
+        var returnValue : String? = null
+        val alert = AlertDialog.Builder(requireContext())
+        alert.setTitle("Add new stuff")
+        val input = EditText(requireContext())
+        alert.setView(input)
+        alert.setPositiveButton("Add") { _, _ ->
+            returnValue = input.text.toString()
+        }
+        alert.setNegativeButton("Cancel") { _, _ -> }
+        alert.show()
+        return returnValue
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(AlarmViewModel::class.java)
@@ -66,28 +83,17 @@ class AlarmFragment : Fragment(), View.OnClickListener {
             override fun onSuccess(dataSnapshot: DataSnapshot) {
                 stuffChipGroup.removeAllViews()
                 for(child in dataSnapshot.children) {
-                    val mChip = requireActivity().layoutInflater.inflate(R.layout.item_chip_stuff,null,false) as Chip
+                    val mChip = requireActivity().layoutInflater.inflate(R.layout.item_chip_stuff,stuffChipGroup,false) as Chip
                     mChip.text = child.value.toString()
-
-                    /*
-                    val chip = Chip(ContextThemeWrapper(requireContext(),R.style.ChipStyle))
-                    chip.text = child.value.toString()
-                    chip.isCheckable = false
-                    chip.setTextColor(Color.BLACK)
-                    chip.setChipBackgroundColorResource(R.color.secondaryColor)
-                    */
-                    //var layoutParam = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT)
-                    //layoutParam.setMargins()
+                    mChip.setOnCloseIconClickListener {
+                        viewModel.removeStuff((it as Chip).text.toString())
+                        stuffChipGroup.removeView(it)
+                    }
                     stuffChipGroup.addView(mChip)
                 }
             }
-
-            override fun onStart() {
-            }
-
-            override fun onFailure() {
-            }
-
+            override fun onStart() {}
+            override fun onFailure() {}
         })
 
         seekBarVolume.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
@@ -130,6 +136,18 @@ class AlarmFragment : Fragment(), View.OnClickListener {
         }
         toggleSunday.setOnClickListener{
             viewModel.setWeekDay("sun",toggleSunday.isChecked)
+        }
+
+        chipAddStuff.setOnClickListener {
+            val alert = AlertDialog.Builder(requireContext())
+            alert.setTitle("Add new stuff")
+            val input = EditText(requireContext())
+            alert.setView(input)
+            alert.setPositiveButton("Add") { _, _ ->
+                viewModel.addStuff(input.text.toString())
+            }
+            alert.setNegativeButton("Cancel") { _, _ -> }
+            alert.show()
         }
     }
 
