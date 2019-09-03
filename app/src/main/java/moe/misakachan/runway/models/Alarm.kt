@@ -13,8 +13,9 @@ data class Alarm(
     var thu : Boolean,
     var fri : Boolean,
     var sat : Boolean,
-    var sun : Boolean
+    var sun : Boolean,
+    var isEnabled : Boolean
 ) {
     @SuppressLint("UseSparseArrays")
-    constructor() : this("00","00", "FFFFFF",100, false,false,false,false,false,false,false)
+    constructor() : this("00","00", "FFFFFF",100, false,false,false,false,false,false,false,false)
 }

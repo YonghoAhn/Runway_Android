@@ -1,37 +1,25 @@
 package moe.misakachan.runway.fragments
 
 import android.app.AlertDialog
-import android.content.DialogInterface
+import android.app.TimePickerDialog
 import android.graphics.Color
-import android.graphics.ColorFilter
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.util.Log
-import android.view.ContextThemeWrapper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.SeekBar
-import androidx.core.content.ContextCompat
-import androidx.core.view.marginTop
-import androidx.lifecycle.Observer
 import androidx.lifecycle.observe
 import com.google.android.material.chip.Chip
 import com.google.firebase.database.DataSnapshot
 import kotlinx.android.synthetic.main.alarm_fragment.*
-import kotlinx.android.synthetic.main.alarm_fragment.view.*
-import moe.misakachan.runway.models.Alarm
 
 import moe.misakachan.runway.R
 import moe.misakachan.runway.viewModels.AlarmViewModel
 import moe.misakachan.runway.viewModels.OnDataListener
-import org.jetbrains.anko.backgroundColor
-import org.jetbrains.anko.toast
 import android.content.Context.LAYOUT_INFLATER_SERVICE
 import android.graphics.PorterDuff
+import android.widget.*
 import com.facebook.FacebookSdk.getApplicationContext
 import kotlinx.android.synthetic.main.add_stuff_dialog.view.*
 import kotlinx.android.synthetic.main.set_color_dialog.view.*
@@ -44,6 +32,15 @@ class AlarmFragment : Fragment() {
     }
 
     private lateinit var viewModel: AlarmViewModel
+    private val listener = TimePickerDialog.OnTimeSetListener() {view : TimePicker, hourOfDay : Int , minute : Int ->
+        viewModel.setTime(hourOfDay,minute)
+    }
+
+    fun changeTime()
+    {
+        val dialog = TimePickerDialog(requireContext(),listener,0,0,true)
+        dialog.show()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -61,7 +58,7 @@ class AlarmFragment : Fragment() {
             val chunked = it.color.chunked(2)
             viewModel.redColor = chunked[0].toInt(16)
             viewModel.greenColor = chunked[1].toInt(16)
-            viewModel.blueCoolor = chunked[2].toInt(16)
+            viewModel.blueColor = chunked[2].toInt(16)
 
             tvAlarmHour.text = it.hour
             tvAlarmMin.text = it.min
@@ -101,11 +98,11 @@ class AlarmFragment : Fragment() {
         })
 
         tvAlarmHour.setOnClickListener {
-            requireActivity().toast("Hour")
+            changeTime()
         }
 
         tvAlarmMin.setOnClickListener {
-            requireActivity().toast("Min")
+            changeTime()
         }
 
         imgAlarmMood.setOnClickListener {
@@ -122,7 +119,7 @@ class AlarmFragment : Fragment() {
             view.imgCircle.colorFilter = imgAlarmMood.colorFilter
             seekBarRed.progress = viewModel.redColor
             seekBarGreen.progress = viewModel.greenColor
-            seekBarBlue.progress = viewModel.blueCoolor
+            seekBarBlue.progress = viewModel.blueColor
 
             seekBarRed.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
                 override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
@@ -152,8 +149,8 @@ class AlarmFragment : Fragment() {
             alert.setPositiveButton("Add") { _, _ ->
                 viewModel.redColor = seekBarRed.progress
                 viewModel.greenColor = seekBarGreen.progress
-                viewModel.blueCoolor = seekBarBlue.progress
-                imgAlarmMood.setColorFilter(Color.rgb(viewModel.redColor,viewModel.greenColor,viewModel.blueCoolor))
+                viewModel.blueColor = seekBarBlue.progress
+                imgAlarmMood.setColorFilter(Color.rgb(viewModel.redColor,viewModel.greenColor,viewModel.blueColor))
                 viewModel.commitColor()
             }
             alert.setNegativeButton("Cancel") { _, _ -> }

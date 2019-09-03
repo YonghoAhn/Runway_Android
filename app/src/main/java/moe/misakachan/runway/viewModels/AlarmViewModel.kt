@@ -1,7 +1,6 @@
 package moe.misakachan.runway.viewModels
 
 import android.app.Application
-import android.graphics.Color
 import android.util.Log
 import androidx.arch.core.util.Function
 import androidx.lifecycle.AndroidViewModel
@@ -10,7 +9,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.google.firebase.database.*
 import moe.misakachan.runway.models.Alarm
-import moe.misakachan.runway.models.Door
 import moe.misakachan.runway.utils.FirebaseQueryLiveData
 import java.lang.StringBuilder
 
@@ -18,7 +16,6 @@ interface OnDataListener {
     fun onSuccess(dataSnapshot: DataSnapshot)
     fun onStart()
     fun onFailure()
-
 }
 
 class AlarmViewModel(application: Application) : AndroidViewModel(application) {
@@ -28,19 +25,18 @@ class AlarmViewModel(application: Application) : AndroidViewModel(application) {
 
     var redColor = 0
     var greenColor = 0
-    var blueCoolor = 0
+    var blueColor = 0
 
     fun commitColor()
     {
         val color = StringBuilder()
         color.append(redColor.toString(16))
         color.append(greenColor.toString(16))
-        color.append(blueCoolor.toString(16))
+        color.append(blueColor.toString(16))
         alarmRef.child("color").setValue(color.toString())
     }
 
     val stuffRef = FirebaseDatabase.getInstance().getReference("/stuff")
-
 
     private inner class Deserializer : Function<DataSnapshot, Alarm> {
         override fun apply(dataSnapshot: DataSnapshot): Alarm? {
@@ -85,6 +81,11 @@ class AlarmViewModel(application: Application) : AndroidViewModel(application) {
     {
         Log.d("MisakaMOE",key)
         stuffRef.child(key).setValue(key)
+    }
+
+    fun setTime(hourOfDay: Int, minute: Int) {
+        alarmRef.child("hour").setValue(hourOfDay.toString().padStart(2,'0'))
+        alarmRef.child("min").setValue(minute.toString().padStart(2,'0'))
     }
     /*
         Mutable Observable (origin data)
