@@ -30,6 +30,10 @@ import moe.misakachan.runway.viewModels.AlarmViewModel
 import moe.misakachan.runway.viewModels.OnDataListener
 import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.toast
+import android.content.Context.LAYOUT_INFLATER_SERVICE
+import com.facebook.FacebookSdk.getApplicationContext
+import kotlinx.android.synthetic.main.add_stuff_dialog.view.*
+
 
 class AlarmFragment : Fragment(), View.OnClickListener {
     override fun onClick(p0: View?) {
@@ -46,20 +50,6 @@ class AlarmFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.alarm_fragment, container, false)
-    }
-
-    fun displayAddStuffDialog() : String? {
-        var returnValue : String? = null
-        val alert = AlertDialog.Builder(requireContext())
-        alert.setTitle("Add new stuff")
-        val input = EditText(requireContext())
-        alert.setView(input)
-        alert.setPositiveButton("Add") { _, _ ->
-            returnValue = input.text.toString()
-        }
-        alert.setNegativeButton("Cancel") { _, _ -> }
-        alert.show()
-        return returnValue
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -139,15 +129,31 @@ class AlarmFragment : Fragment(), View.OnClickListener {
         }
 
         chipAddStuff.setOnClickListener {
+            val inflater =
+                getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            val view = inflater.inflate(R.layout.add_stuff_dialog, null)
+
             val alert = AlertDialog.Builder(requireContext())
             alert.setTitle("Add new stuff")
-            val input = EditText(requireContext())
-            alert.setView(input)
+            val input = view.editTextStuff
+            alert.setView(view)
             alert.setPositiveButton("Add") { _, _ ->
                 viewModel.addStuff(input.text.toString())
             }
             alert.setNegativeButton("Cancel") { _, _ -> }
             alert.show()
+        }
+
+        btnToggleTimeGroup.addOnButtonCheckedListener { group, checkedId, isChecked ->
+            when(isChecked)
+            {
+                true -> {
+                    btnToggleTime.text = "ENABLED"
+                }
+                false -> {
+                    btnToggleTime.text = "DISABLED"
+                }
+            }
         }
     }
 

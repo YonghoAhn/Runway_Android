@@ -20,14 +20,16 @@
                 android:layout_height="match_parent"
                 android:background="@color/primaryColor"
         >
-            <com.google.android.material.button.MaterialButtonToggleGroup android:layout_width="0dp"
-                                                                          android:layout_height="wrap_content"
-                                                                          app:layout_constraintStart_toStartOf="parent"
-                                                                          app:layout_constraintEnd_toEndOf="parent"
-                                                                          app:layout_constraintTop_toBottomOf="@+id/chipAddStuff"
-                                                                          android:layout_marginStart="@dimen/margin_large"
-                                                                          android:layout_marginEnd="@dimen/margin_large"
-                                                                          android:layout_marginTop="@dimen/margin_medium">
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/btnToggleTimeGroup"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/chipAddStuff"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin_medium">
                 <com.google.android.material.button.MaterialButton
                         android:backgroundTint="@drawable/togglebutton_management_background"
                         android:textColor="@drawable/togglebutton_management_textcolor"
