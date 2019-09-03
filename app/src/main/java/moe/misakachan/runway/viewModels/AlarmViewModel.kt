@@ -12,6 +12,7 @@ import com.google.firebase.database.*
 import moe.misakachan.runway.models.Alarm
 import moe.misakachan.runway.models.Door
 import moe.misakachan.runway.utils.FirebaseQueryLiveData
+import java.lang.StringBuilder
 
 interface OnDataListener {
     fun onSuccess(dataSnapshot: DataSnapshot)
@@ -24,6 +25,19 @@ class AlarmViewModel(application: Application) : AndroidViewModel(application) {
     private val alarmRef = FirebaseDatabase.getInstance().getReference("/alarm")
     private val alarmLiveData = FirebaseQueryLiveData(alarmRef)
     private val liveData = Transformations.map(alarmLiveData, Deserializer())
+
+    var redColor = 0
+    var greenColor = 0
+    var blueCoolor = 0
+
+    fun commitColor()
+    {
+        val color = StringBuilder()
+        color.append(redColor.toString(16))
+        color.append(greenColor.toString(16))
+        color.append(blueCoolor.toString(16))
+        alarmRef.child("color").setValue(color.toString())
+    }
 
     val stuffRef = FirebaseDatabase.getInstance().getReference("/stuff")
 

@@ -31,13 +31,13 @@ import moe.misakachan.runway.viewModels.OnDataListener
 import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.toast
 import android.content.Context.LAYOUT_INFLATER_SERVICE
+import android.graphics.PorterDuff
 import com.facebook.FacebookSdk.getApplicationContext
 import kotlinx.android.synthetic.main.add_stuff_dialog.view.*
+import kotlinx.android.synthetic.main.set_color_dialog.view.*
 
 
-class AlarmFragment : Fragment(), View.OnClickListener {
-    override fun onClick(p0: View?) {
-    }
+class AlarmFragment : Fragment() {
 
     companion object {
         fun newInstance() = AlarmFragment()
@@ -57,6 +57,12 @@ class AlarmFragment : Fragment(), View.OnClickListener {
         viewModel = ViewModelProviders.of(this).get(AlarmViewModel::class.java)
         viewModel.getDataSnapshotLiveData().observe(this) {
             imgAlarmMood.setColorFilter(Color.parseColor("#"+it.color))
+
+            val chunked = it.color.chunked(2)
+            viewModel.redColor = chunked[0].toInt(16)
+            viewModel.greenColor = chunked[1].toInt(16)
+            viewModel.blueCoolor = chunked[2].toInt(16)
+
             tvAlarmHour.text = it.hour
             tvAlarmMin.text = it.min
             seekBarVolume.progress = it.volume
@@ -103,7 +109,55 @@ class AlarmFragment : Fragment(), View.OnClickListener {
         }
 
         imgAlarmMood.setOnClickListener {
-            requireActivity().toast("Image")
+            val inflater =
+                getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            val view = inflater.inflate(R.layout.set_color_dialog, null)
+
+            val alert = AlertDialog.Builder(requireContext())
+            alert.setTitle("Set new color")
+            val imgCircle = view.imgCircle
+            val seekBarRed = view.seekBarRed
+            val seekBarBlue = view.seekBarBlue
+            val seekBarGreen = view.seekBarGreen
+            view.imgCircle.colorFilter = imgAlarmMood.colorFilter
+            seekBarRed.progress = viewModel.redColor
+            seekBarGreen.progress = viewModel.greenColor
+            seekBarBlue.progress = viewModel.blueCoolor
+
+            seekBarRed.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+                override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+                    imgCircle.setColorFilter(Color.argb(255,seekBarRed.progress, seekBarGreen.progress, seekBarBlue.progress), PorterDuff.Mode.SRC_IN)
+                }
+                override fun onStartTrackingTouch(p0: SeekBar?) {}
+                override fun onStopTrackingTouch(p0: SeekBar?) {}
+            })
+
+            seekBarGreen.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+                override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+                    imgCircle.setColorFilter(Color.argb(255,seekBarRed.progress, seekBarGreen.progress, seekBarBlue.progress), PorterDuff.Mode.SRC_IN)
+                }
+                override fun onStartTrackingTouch(p0: SeekBar?) {}
+                override fun onStopTrackingTouch(p0: SeekBar?) {}
+            })
+
+            seekBarBlue.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+                override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+                    imgCircle.setColorFilter(Color.argb(255,seekBarRed.progress, seekBarGreen.progress, seekBarBlue.progress), PorterDuff.Mode.SRC_IN)
+                }
+                override fun onStartTrackingTouch(p0: SeekBar?) {}
+                override fun onStopTrackingTouch(p0: SeekBar?) {}
+            })
+
+            alert.setView(view)
+            alert.setPositiveButton("Add") { _, _ ->
+                viewModel.redColor = seekBarRed.progress
+                viewModel.greenColor = seekBarGreen.progress
+                viewModel.blueCoolor = seekBarBlue.progress
+                imgAlarmMood.setColorFilter(Color.rgb(viewModel.redColor,viewModel.greenColor,viewModel.blueCoolor))
+                viewModel.commitColor()
+            }
+            alert.setNegativeButton("Cancel") { _, _ -> }
+            alert.show()
         }
 
         toggleMonday.setOnClickListener{
@@ -143,6 +197,8 @@ class AlarmFragment : Fragment(), View.OnClickListener {
             alert.setNegativeButton("Cancel") { _, _ -> }
             alert.show()
         }
+
+
 
         btnToggleTimeGroup.addOnButtonCheckedListener { group, checkedId, isChecked ->
             when(isChecked)
