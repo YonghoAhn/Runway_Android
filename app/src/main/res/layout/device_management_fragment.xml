@@ -28,7 +28,7 @@
                     style="@style/AppButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/start_time"
+                    android:text="@string/mirror"
                     android:textColor="@color/secondaryColor"
                     android:layout_marginTop="@dimen/margin_large"
             />
@@ -38,7 +38,7 @@
                     style="@style/AppButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mirror"
+                    android:text="@string/alarm"
                     android:textColor="@color/secondaryColor"
                     android:layout_marginTop="@dimen/margin_medium"
             />
@@ -48,7 +48,7 @@
                     style="@style/AppButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/end_time"
+                    android:text="@string/doorlock"
                     android:textColor="@color/secondaryColor"
                     android:layout_marginTop="@dimen/margin_medium"
             />

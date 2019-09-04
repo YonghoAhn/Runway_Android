@@ -29,4 +29,6 @@
     <string name="stop">STOP</string>
     <string name="tap_to_lock_door">TAP TO LOCK DOOR</string>
     <string name="tap_to_unlock_door">TAP TO UNLOCK DOOR</string>
+    <string name="alarm">ALARM</string>
+    <string name="doorlock">DOORLOCK</string>
 </resources>
