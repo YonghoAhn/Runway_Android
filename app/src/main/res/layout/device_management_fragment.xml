@@ -34,16 +34,6 @@
             />
 
             <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnAlarm"
-                    style="@style/AppButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/alarm"
-                    android:textColor="@color/secondaryColor"
-                    android:layout_marginTop="@dimen/margin_medium"
-            />
-
-            <com.google.android.material.button.MaterialButton
                     android:id="@+id/btndoorlock"
                     style="@style/AppButton"
                     android:layout_width="match_parent"

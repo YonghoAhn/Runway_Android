@@ -67,6 +67,11 @@ class AlarmViewModel(application: Application) : AndroidViewModel(application) {
         alarmRef.child("volume").setValue(volume)
     }
 
+    fun updateState(state: Boolean)
+    {
+        alarmRef.child("isEnabled").setValue(state)
+    }
+
     fun setWeekDay(position : String, state : Boolean)
     {
         alarmRef.child(position).setValue(state)

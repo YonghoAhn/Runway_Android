@@ -29,9 +29,7 @@ class DeviceManagementFragment : Fragment() {
         view.findViewById<MaterialButton>(R.id.btnMirror).setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_deviceManagementFragment_to_mirrorManageFragment)
         }
-        view.findViewById<MaterialButton>(R.id.btnAlarm).setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_deviceManagementFragment_to_alarmManageFragment)
-        }
+
         view.findViewById<MaterialButton>(R.id.btndoorlock).setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_deviceManagementFragment_to_doorManageFragment)
         }

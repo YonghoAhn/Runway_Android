@@ -19,9 +19,6 @@
                 android:id="@+id/action_deviceManagementFragment_to_mirrorManageFragment"
                 app:destination="@id/mirrorManageFragment" />
         <action
-                android:id="@+id/action_deviceManagementFragment_to_alarmManageFragment"
-                app:destination="@id/alarmManageFragment" />
-        <action
                 android:id="@+id/action_deviceManagementFragment_to_doorManageFragment"
                 app:destination="@id/doorManageFragment" />
     </fragment>
@@ -44,10 +41,6 @@
             android:name="moe.misakachan.runway.fragments.MirrorManageFragment"
             android:label="mirror_manage_fragment"
             tools:layout="@layout/mirror_manage_fragment" />
-    <fragment
-            android:id="@+id/alarmManageFragment"
-            android:name="moe.misakachan.runway.fragments.AlarmManageFragment"
-            android:label="AlarmManageFragment" />
     <fragment
             android:id="@+id/doorManageFragment"
             android:name="moe.misakachan.runway.fragments.DoorManageFragment"
