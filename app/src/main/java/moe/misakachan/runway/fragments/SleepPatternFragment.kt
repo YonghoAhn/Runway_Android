@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.observe
+import kotlinx.android.synthetic.main.sleep_pattern_fragment.*
 
 import moe.misakachan.runway.R
 import moe.misakachan.runway.viewModels.SleepPatternViewModel
@@ -38,8 +39,8 @@ class SleepPatternFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(SleepPatternViewModel::class.java)
         val calendar = Calendar.getInstance()
        //Get current day
-        viewModel.getSleepDataSnapshotLiveData("").observe(this) {
-
+        viewModel.getSleepDataSnapshotLiveData(year.toString().padStart(4,'0')+month.toString().padStart(2,'0')+day.toString().padStart(2,'0')).observe(this) {
+            btnDeepSleep.text = getString(R.string.deepSleep, it.deep.toString())
         }
         //display it first.
     }

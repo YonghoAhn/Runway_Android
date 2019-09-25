@@ -19,6 +19,7 @@ import moe.misakachan.runway.viewModels.AlarmViewModel
 import moe.misakachan.runway.viewModels.OnDataListener
 import android.content.Context.LAYOUT_INFLATER_SERVICE
 import android.graphics.PorterDuff
+import android.util.Log
 import android.widget.*
 import com.facebook.FacebookSdk.getApplicationContext
 import kotlinx.android.synthetic.main.add_stuff_dialog.view.*
@@ -52,6 +53,7 @@ class AlarmFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(AlarmViewModel::class.java)
+
         viewModel.getDataSnapshotLiveData().observe(this) {
             imgAlarmMood.setColorFilter(Color.parseColor("#"+it.color))
 
@@ -72,7 +74,7 @@ class AlarmFragment : Fragment() {
             toggleSunday.isChecked = it.sun
 
             if(it.isEnabled) {
-                btnToggleTimeGroup.check(R.id.btnToggleTime)
+                btnToggleTimeGroup.check(R.id.btnToggleAlarm)
             }
         }
 
@@ -199,16 +201,16 @@ class AlarmFragment : Fragment() {
             alert.show()
         }
 
-        btnToggleTime.setOnClickListener {
+        btnToggleAlarm.setOnClickListener {
             if(btnToggleTimeGroup.checkedButtonId == it.id) {
                 //눌러서 체크되어있음
-                btnToggleTime.text = "ENABLED"
+                btnToggleAlarm.text = "ENABLED"
                 viewModel.updateState(state = true)
             }
             else
             {
                 //체크안됨
-                btnToggleTime.text = "DISABLED"
+                btnToggleAlarm.text = "DISABLED"
                 viewModel.updateState(state = false)
             }
         }

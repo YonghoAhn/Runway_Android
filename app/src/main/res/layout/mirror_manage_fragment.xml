@@ -66,6 +66,7 @@
                     android:layout_marginEnd="@dimen/margin_large"
                     android:layout_marginTop="@dimen/margin_small"
                     android:layout_marginBottom="@dimen/margin_small"
+                    android:id="@+id/btnToggleScheduleGroup"
             >
                 <com.google.android.material.button.MaterialButton
                         android:backgroundTint="@drawable/togglebutton_management_background"

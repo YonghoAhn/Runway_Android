@@ -24,7 +24,6 @@
                     android:id="@+id/btnToggleTimeGroup"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:singleSelection="true"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/chipAddStuff"
@@ -38,7 +37,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="DISABLED"
-                        android:id="@+id/btnToggleTime"/>
+                        android:id="@+id/btnToggleAlarm"/>
             </com.google.android.material.button.MaterialButtonToggleGroup>
             <ImageView
                     android:src="@drawable/ic_circle"
