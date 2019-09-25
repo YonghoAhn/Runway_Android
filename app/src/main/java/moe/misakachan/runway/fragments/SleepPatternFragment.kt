@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.sleep_pattern_fragment.*
 import moe.misakachan.runway.R
 import moe.misakachan.runway.models.SleepPattern
 import moe.misakachan.runway.viewModels.SleepPatternViewModel
+import java.lang.StringBuilder
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -43,13 +44,18 @@ class SleepPatternFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(SleepPatternViewModel::class.java)
 
         viewModel.dateLiveData.observe(this) {
-            val sleepPatternListener = object : ValueEventListener {
+            object : ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
                 }
 
                 override fun onDataChange(p0: DataSnapshot) {
                     val sleepPattern = p0.getValue(SleepPattern::class.java)
-                    btnDeepSleep.text = getString(R.string.deepSleep, it.deep.toString())
+                    //minute to hour and min
+                    if (sleepPattern != null) {
+                        btnDeepSleep.text = getString(R.string.deepSleep, parseSleepTime(sleepPattern.deep) )
+                        btnLightSleep.text = getString(R.string.lightSleep, parseSleepTime(sleepPattern.light) )
+                        btnNoSleep.text = getString(R.string.nonSleep, parseSleepTime(sleepPattern.non) )
+                    }
 
                 }
             }
@@ -65,6 +71,25 @@ class SleepPatternFragment : Fragment() {
             viewModel.setDate(year.toString().padStart(4,'0') + month.toString().padStart(2, '0') + day.toString().padStart(2, '0'))
         }
         //display it first.
+    }
+
+    fun parseSleepTime(minute: Int) : String
+    {
+        val returnTime = StringBuilder()
+        val hour : Int = minute / 60
+        if(hour == 0) {
+            returnTime.append(minute)
+            returnTime.append(" M")
+        }
+        else
+        {
+            val min = (minute - (hour*60)) % 60
+            returnTime.append(hour)
+            returnTime.append(" H ")
+            returnTime.append(min)
+            returnTime.append(" M")
+        }
+        return returnTime.toString()
     }
 
 }
