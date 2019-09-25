@@ -2,6 +2,7 @@ package moe.misakachan.runway.viewModels
 
 import androidx.arch.core.util.Function
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.google.firebase.database.DataSnapshot
@@ -11,6 +12,13 @@ import moe.misakachan.runway.models.SleepPattern
 import moe.misakachan.runway.utils.FirebaseQueryLiveData
 
 class SleepPatternViewModel : ViewModel() {
+
+    var dateLiveData : MutableLiveData<String> = MutableLiveData("20190924")
+
+    fun setDate(date:String)
+    {
+        dateLiveData.value = date
+    }
 
     // /sleepPattern/date/{deep, light, non}
     // date to model , ref from cur date.
@@ -27,6 +35,5 @@ class SleepPatternViewModel : ViewModel() {
         val sleepLiveData = FirebaseQueryLiveData(sleepRef)
         return Transformations.map(sleepLiveData, Deserializer())
     }
-
 
 }
