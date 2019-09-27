@@ -56,6 +56,12 @@ class SleepPatternFragment : Fragment() {
                         btnLightSleep.text = getString(R.string.lightSleep, parseSleepTime(sleepPattern.light) )
                         btnNoSleep.text = getString(R.string.nonSleep, parseSleepTime(sleepPattern.non) )
                     }
+                    else
+                    {
+                        btnDeepSleep.text = getString(R.string.deepSleep, "No data" )
+                        btnLightSleep.text = getString(R.string.lightSleep, "No data" )
+                        btnNoSleep.text = getString(R.string.nonSleep, "No data" )
+                    }
 
                 }
             }

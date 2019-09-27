@@ -1,4 +1,4 @@
-package moe.misakachan.runway
+package moe.misakachan.runway.services
 
 import android.app.Service
 import android.content.Intent
