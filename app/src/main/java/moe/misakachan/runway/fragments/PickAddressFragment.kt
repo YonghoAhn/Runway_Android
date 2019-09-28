@@ -76,7 +76,7 @@ class PickAddressFragment : Fragment(), MapView.CurrentLocationEventListener {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(PickAddressViewModel::class.java)
-        mapView = MapView(requireContext())
+        mapView = MapView(requireActivity())
         val mapViewContainer = mapViewLayout
         mapViewContainer.addView(mapView)
 

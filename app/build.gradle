@@ -101,4 +101,5 @@ dependencies {
     // optional - Test helpers for LiveData
     testImplementation "androidx.arch.core:core-testing:$lifecycle_version"
     implementation files('src\\main\\jniLibs\\libDaumMapAndroid.jar')
+    implementation files('libs\\libDaumMapAndroid.jar')
 }
