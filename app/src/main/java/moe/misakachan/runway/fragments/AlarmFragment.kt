@@ -199,8 +199,8 @@ class AlarmFragment : Fragment() {
             alert.show()
         }
 
-        swAlarmStart.setOnCheckedChangeListener { _, isChecked ->
-            viewModel.updateState(isChecked)
+        swAlarmStart.setOnClickListener {
+            viewModel.updateState(swAlarmStart.isChecked)
         }
         /*
         btnToggleTimeGroup.addOnButtonCheckedListener { group, checkedId, isChecked ->
