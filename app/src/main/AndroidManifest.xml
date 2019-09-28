@@ -18,7 +18,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
 
-        <meta-data android:name="com.kakao.sdk.AppKey" android:value="77b1735d68a239d7f94209f426c6b00d"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="26206630d13130e2caba3833d37906dd"/>
 
         <service
                 android:name=".services.FCMService"

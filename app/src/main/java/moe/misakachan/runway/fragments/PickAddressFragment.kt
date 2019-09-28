@@ -31,8 +31,7 @@ import android.location.LocationManager
 import android.content.Context.LOCATION_SERVICE
 import androidx.core.content.ContextCompat.getSystemService
 import android.util.Log
-
-
+import android.widget.RelativeLayout
 
 
 class PickAddressFragment : Fragment(), MapView.CurrentLocationEventListener {
@@ -70,23 +69,25 @@ class PickAddressFragment : Fragment(), MapView.CurrentLocationEventListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.pick_address_fragment, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(PickAddressViewModel::class.java)
+        val view = inflater.inflate(R.layout.pick_address_fragment, container, false)
         mapView = MapView(requireActivity())
-        val mapViewContainer = mapViewLayout
+        val mapViewContainer = view.findViewById<RelativeLayout>(R.id.mapViewLayout)
         mapViewContainer.addView(mapView)
 
-        mapView.setDaumMapApiKey("77b1735d68a239d7f94209f426c6b00d")
+        mapView.setDaumMapApiKey("26206630d13130e2caba3833d37906dd")
         mapView.setCurrentLocationEventListener(this)
         if (!checkLocationServicesStatus()) {
             showDialogForLocationServiceSetting()
         }else {
             checkRunTimePermission()
         }
+        return view
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel = ViewModelProviders.of(this).get(PickAddressViewModel::class.java)
+
     }
 
     override fun onRequestPermissionsResult(
