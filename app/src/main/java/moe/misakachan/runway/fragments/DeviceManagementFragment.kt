@@ -26,9 +26,6 @@ class DeviceManagementFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.device_management_fragment, container, false)
-        view.findViewById<MaterialButton>(R.id.btnMirror).setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_deviceManagementFragment_to_mirrorManageFragment)
-        }
 
         view.findViewById<MaterialButton>(R.id.btndoorlock).setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_deviceManagementFragment_to_doorManageFragment)
