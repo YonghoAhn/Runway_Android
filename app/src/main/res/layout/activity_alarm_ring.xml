@@ -16,6 +16,7 @@
                app:layout_constraintTop_toTopOf="parent" android:id="@+id/textClock"/>
 
     <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStopAlarm"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             style="@style/AppButton"
