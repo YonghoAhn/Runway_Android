@@ -31,7 +31,14 @@
             android:id="@+id/settingFragment"
             android:name="moe.misakachan.runway.fragments.SettingFragment"
             android:label="setting_fragment"
-            tools:layout="@layout/setting_fragment" />
+            tools:layout="@layout/setting_fragment" >
+        <action
+                android:id="@+id/action_settingFragment_to_pickAddressFragment2"
+                app:destination="@id/pickAddressFragment2" />
+        <action
+                android:id="@+id/action_settingFragment_to_timePickFragment2"
+                app:destination="@id/timePickFragment2" />
+    </fragment>
     <fragment
             android:id="@+id/alarmFragment"
             android:name="moe.misakachan.runway.fragments.AlarmFragment"
@@ -45,4 +52,18 @@
             android:id="@+id/doorManageFragment"
             android:name="moe.misakachan.runway.fragments.DoorManageFragment"
             android:label="DoorManageFragment" />
+    <fragment
+            android:id="@+id/pickAddressFragment2"
+            android:name="moe.misakachan.runway.fragments.PickAddressFragment"
+            android:label="pick_address_fragment"
+            tools:layout="@layout/pick_address_fragment" >
+        <argument
+                android:name="type"
+                app:argType="boolean" />
+    </fragment>
+    <fragment
+            android:id="@+id/timePickFragment2"
+            android:name="moe.misakachan.runway.fragments.TimePickFragment"
+            android:label="time_pick_fragment"
+            tools:layout="@layout/time_pick_fragment" />
 </navigation>
