@@ -18,8 +18,6 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
 
-        <meta-data android:name="com.kakao.sdk.AppKey" android:value="77b1735d68a239d7f94209f426c6b00d"/>
-
         <service
                 android:name=".services.FCMService"
                 android:enabled="true"

@@ -100,5 +100,5 @@ dependencies {
     // For Kotlin use lifecycle-reactivestreams-ktx
     // optional - Test helpers for LiveData
     testImplementation "androidx.arch.core:core-testing:$lifecycle_version"
-    implementation files('src\\main\\jniLibs\\libDaumMapAndroid.jar')
+
 }
