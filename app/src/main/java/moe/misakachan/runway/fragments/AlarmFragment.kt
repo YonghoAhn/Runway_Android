@@ -73,9 +73,7 @@ class AlarmFragment : Fragment() {
             toggleSaturday.isChecked = it.sat
             toggleSunday.isChecked = it.sun
 
-            if(it.isEnabled) {
-                btnToggleTimeGroup.check(R.id.btnToggleAlarm)
-            }
+            swAlarmStart.isChecked = it.isEnabled
         }
 
         viewModel.getStuff(viewModel.stuffRef, object : OnDataListener {
@@ -201,20 +199,9 @@ class AlarmFragment : Fragment() {
             alert.show()
         }
 
-        btnToggleAlarm.setOnClickListener {
-            if(btnToggleTimeGroup.checkedButtonId == it.id) {
-                //눌러서 체크되어있음
-                btnToggleAlarm.text = "ENABLED"
-                viewModel.updateState(state = true)
-            }
-            else
-            {
-                //체크안됨
-                btnToggleAlarm.text = "DISABLED"
-                viewModel.updateState(state = false)
-            }
+        swAlarmStart.setOnCheckedChangeListener { compoundButton, isChecked ->
+            viewModel.updateState(isChecked)
         }
-
         /*
         btnToggleTimeGroup.addOnButtonCheckedListener { group, checkedId, isChecked ->
             when(isChecked)

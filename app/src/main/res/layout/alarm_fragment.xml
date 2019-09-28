@@ -20,25 +20,25 @@
                 android:layout_height="match_parent"
                 android:background="@color/primaryColor"
         >
-            <com.google.android.material.button.MaterialButtonToggleGroup
-                    android:id="@+id/btnToggleTimeGroup"
-                    android:layout_width="0dp"
+
+            <TextView
+                    android:id="@+id/textView10"
+                    style="@style/ContentTextView"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:text="Started"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/chipAddStuff"
-                    android:layout_marginStart="@dimen/margin_large"
-                    android:layout_marginEnd="@dimen/margin_large"
-                    android:layout_marginTop="@dimen/margin_medium">
-                <com.google.android.material.button.MaterialButton
-                        android:backgroundTint="@drawable/togglebutton_management_background"
-                        android:textColor="@drawable/togglebutton_management_textcolor"
-                        style="@style/AppButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="DISABLED"
-                        android:id="@+id/btnToggleAlarm"/>
-            </com.google.android.material.button.MaterialButtonToggleGroup>
+                    app:layout_constraintTop_toBottomOf="@+id/chipAddStuff" />
+
+            <Switch
+                    android:id="@+id/swAlarmStart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView10" />
             <ImageView
                     android:src="@drawable/ic_circle"
                     android:tint="@color/primaryDarkColor"
