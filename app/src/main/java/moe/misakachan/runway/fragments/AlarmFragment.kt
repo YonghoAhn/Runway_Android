@@ -37,7 +37,7 @@ class AlarmFragment : Fragment() {
         viewModel.setTime(hourOfDay,minute)
     }
 
-    fun changeTime()
+    private fun changeTime()
     {
         val dialog = TimePickerDialog(requireContext(),listener,0,0,true)
         dialog.show()
@@ -199,7 +199,7 @@ class AlarmFragment : Fragment() {
             alert.show()
         }
 
-        swAlarmStart.setOnCheckedChangeListener { compoundButton, isChecked ->
+        swAlarmStart.setOnCheckedChangeListener { _, isChecked ->
             viewModel.updateState(isChecked)
         }
         /*

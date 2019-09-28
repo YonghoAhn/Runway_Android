@@ -24,16 +24,6 @@
                       android:text="@string/manage_your_device"/>
 
             <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnMirror"
-                    style="@style/AppButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/mirror"
-                    android:textColor="@color/secondaryColor"
-                    android:layout_marginTop="@dimen/margin_large"
-            />
-
-            <com.google.android.material.button.MaterialButton
                     android:id="@+id/btndoorlock"
                     style="@style/AppButton"
                     android:layout_width="match_parent"
